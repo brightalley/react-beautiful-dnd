@@ -1,8 +1,8 @@
 {
-  "name": "react-beautiful-dnd",
-  "version": "13.1.0",
-  "description": "Beautiful and accessible drag and drop for lists with React",
-  "author": "Alex Reardon <areardon@atlassian.com>",
+  "name": "@brightalley/react-beautiful-dnd",
+  "version": "13.2.0",
+  "description": "A Fork of atlassian/react-beautiful-dnd with a few fixes. Beautiful and accessible drag and drop for lists with React",
+  "author": "Peter Keijsers <peter.keijsers@brightalley.nl>",
   "keywords": [
     "drag and drop",
     "dnd",
@@ -17,10 +17,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/atlassian/react-beautiful-dnd.git"
+    "url": "git://github.com/brightalley/react-beautiful-dnd"
   },
   "bugs": {
-    "url": "https://github.com/atlassian/react-beautiful-dnd/issues"
+    "url": "https://github.com/brightalley/react-beautiful-dnd/issues"
   },
   "main": "dist/react-beautiful-dnd.cjs.js",
   "module": "dist/react-beautiful-dnd.esm.js",
