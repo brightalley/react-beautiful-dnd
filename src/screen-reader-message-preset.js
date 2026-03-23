@@ -16,9 +16,9 @@ export type MessagePreset = {|
 |};
 
 const dragHandleUsageInstructions: string = `
-  Press space bar to start a drag.
-  When dragging you can use the arrow keys to move the item around and escape to cancel.
-  Some screen readers may require you to be in focus mode or to use your pass through key
+  Druk op de spatiebalk om te beginnen met slepen.
+  Tijdens het slepen kun je de pijltjestoetsen gebruiken om het item te verplaatsen en escape om te annuleren.
+  Sommige screen readers vereisen mogelijk dat je in focusmodus bent of een pass-through commando gebruikt
 `;
 
 const position = (index: number): number => index + 1;
@@ -26,7 +26,7 @@ const position = (index: number): number => index + 1;
 // We cannot list what index the Droppable is in automatically as we are not sure how
 // the Droppable's have been configured
 const onDragStart = (start: DragStart): string => `
-  You have lifted an item in position ${position(start.source.index)}
+  Je hebt een item opgepakt op positie ${position(start.source.index)}
 `;
 
 const withLocation = (
@@ -40,16 +40,16 @@ const withLocation = (
 
   if (isInHomeList) {
     return `
-      You have moved the item from position ${startPosition}
-      to position ${endPosition}
+      Je hebt het item verplaatst van positie ${startPosition}
+      naar positie ${endPosition}
     `;
   }
 
   return `
-    You have moved the item from position ${startPosition}
-    in list ${source.droppableId}
-    to list ${destination.droppableId}
-    in position ${endPosition}
+    Je hebt het item verplaatst van positie ${startPosition}
+    in lijst ${source.droppableId}
+    naar lijst ${destination.droppableId}
+    in positie ${endPosition}
   `;
 };
 
@@ -62,15 +62,15 @@ const withCombine = (
 
   if (inHomeList) {
     return `
-      The item ${id}
-      has been combined with ${combine.draggableId}`;
+      Het item ${id}
+      is gecombineerd met ${combine.draggableId}`;
   }
 
   return `
-      The item ${id}
-      in list ${source.droppableId}
-      has been combined with ${combine.draggableId}
-      in list ${combine.droppableId}
+      Het item ${id}
+      in lijst ${source.droppableId}
+      is gecombineerd met ${combine.draggableId}
+      in lijst ${combine.droppableId}
     `;
 };
 
@@ -85,18 +85,17 @@ const onDragUpdate = (update: DragUpdate): string => {
     return withCombine(update.draggableId, update.source, combine);
   }
 
-  return 'You are over an area that cannot be dropped on';
+  return 'Je bevindt je niet boven een doelgebied';
 };
 
 const returnedToStart = (source: DraggableLocation): string => `
-  The item has returned to its starting position
-  of ${position(source.index)}
+  Het item is teruggekeerd naar startpositie ${position(source.index)}
 `;
 
 const onDragEnd = (result: DropResult): string => {
   if (result.reason === 'CANCEL') {
     return `
-      Movement cancelled.
+      Verplaatsing geannuleerd.
       ${returnedToStart(result.source)}
     `;
   }
@@ -106,20 +105,20 @@ const onDragEnd = (result: DropResult): string => {
 
   if (location) {
     return `
-      You have dropped the item.
+      Je hebt het item neergezet.
       ${withLocation(result.source, location)}
     `;
   }
 
   if (combine) {
     return `
-      You have dropped the item.
+      Je hebt het item neergezet.
       ${withCombine(result.draggableId, result.source, combine)}
     `;
   }
 
   return `
-    The item has been dropped while not over a drop area.
+    Het item is niet boven een doelgebied losgelaten.
     ${returnedToStart(result.source)}
   `;
 };
