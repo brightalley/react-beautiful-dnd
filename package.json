@@ -1,6 +1,6 @@
 {
   "name": "@brightalley/react-beautiful-dnd",
-  "version": "13.2.0",
+  "version": "13.2.1",
   "description": "A Fork of atlassian/react-beautiful-dnd with a few fixes. Beautiful and accessible drag and drop for lists with React",
   "author": "Peter Keijsers <peter.keijsers@brightalley.nl>",
   "keywords": [
