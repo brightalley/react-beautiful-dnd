@@ -1,6 +1,6 @@
 {
   "name": "@brightalley/react-beautiful-dnd",
-  "version": "13.2.0",
+  "version": "13.2.1",
   "description": "A Fork of atlassian/react-beautiful-dnd with a few fixes. Beautiful and accessible drag and drop for lists with React",
   "author": "Peter Keijsers <peter.keijsers@brightalley.nl>",
   "keywords": [
@@ -53,7 +53,8 @@
     "build:flow": "echo \"// @flow\n\nexport * from '../src';\" > dist/react-beautiful-dnd.cjs.js.flow",
     "storybook": "start-storybook -p 9002",
     "build-storybook": "build-storybook -c .storybook -o site",
-    "prepublishOnly": "yarn build"
+    "prepublishOnly": "yarn build",
+    "prepare": "yarn build"
   },
   "dependencies": {
     "@babel/runtime": "^7.9.2",
